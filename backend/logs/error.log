@@ -1,0 +1,8 @@
+{"level":"error","message":"Error al conectarse a la DB MongoServerError: bad auth : Authentication failed."}
+{"level":"error","message":"Error al conectarse a la DB MongoServerError: bad auth : Authentication failed."}
+{"level":"error","message":"Error al conectarse a la DB MongoServerError: bad auth : Authentication failed."}
+{"level":"error","message":"Error al conectarse a la DB MongoServerError: bad auth : Authentication failed."}
+{"level":"error","message":" Error en el servidor Error: listen EADDRINUSE: address already in use :::8080"}
+{"level":"error","message":"error al subir una orden TypeError: Orders.insertOne is not a function"}
+{"level":"error","message":"error al subir una orden TypeError: Orders.insertOne is not a function"}
+{"code":"EAUTH","command":"API","level":"error"}
