@@ -1,17 +1,15 @@
-import cors from 'cors';
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
-import { config } from './config.js';
 import express from 'express';
 import session from 'express-session';
+import passport from './passport/setup.js';
 import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
-import routerUser from './routes/routesUser.js';
-import routerProductos from './routes/routesProductos.js';
-import routerOrders from './routes/routesOrders.js';
-import passport from './passport/setup.js';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 import cluster from 'cluster';
 import os from 'os';
+import cors from 'cors';
+import { config } from './config.js';
+import {routerOrders, routerProducts, routerUsers} from './routes/index.js';
 import logger from './logger/logger.js';
 
 const numCPUs = os.cpus().length;
@@ -75,8 +73,8 @@ app.get('/info', (req, res) => {
 	});
 });
 
-app.use('/', routerUser);
-app.use('/', routerProductos);
+app.use('/', routerUsers);
+app.use('/', routerProducts);
 app.use('/', routerOrders);
 app.use((req, res) => {
 	// HANDLE UNMATCHED ROUTES

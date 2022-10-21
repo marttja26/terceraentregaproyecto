@@ -1,42 +1,27 @@
-import { Router } from 'express';
-import { upload } from '../middlewares/middleware.js';
 import passport from 'passport';
-import { isAuth } from '../middlewares/middleware.js';
 import logger from '../logger/logger.js';
 import { sendEmail } from '../utils/mail.js';
+import users from '../negocio/users.js';
 
-const routerUser = new Router();
-
-routerUser.get('/', isAuth, (req, res, next) => {
-	const { method, url } = req;
-	logger.info(` Peticion a ${method} ${url} recibida`);
-	res.redirect('/content');
-});
-
-routerUser.get('/user', isAuth, (req, res) => {
+const getUserController = (req, res) => {
 	const { method, url, user } = req;
 	logger.info(` Peticion a ${method} ${url} recibida`);
-	const userCopy = { ...user._doc };
-	const { password, __v, ...userWithoutPassword } = userCopy;
-	res.json(userWithoutPassword);
-});
+	res.json(users.getUser(user));
+};
 
-routerUser.get('/auth', isAuth, (req, res) => {
+const getAuth = (req, res) => {
 	const { method, url } = req;
 	logger.info(` Peticion a ${method} ${url} recibida`);
 	res.json({ token: true });
-});
+};
 
-routerUser.get('/logout', isAuth, (req, res, next) => {
-	const { method, url } = req;
+const logoutController = (req, res) => {
+	const { method, url, session } = req;
 	logger.info(` Peticion a ${method} ${url} recibida`);
-	req.session.destroy(function (err) {
-		if (err) return next(err);
-		res.json({ message: 'Se ha cerrado la sesion.' });
-	});
-});
+	res.json(users.logout(session));
+};
 
-routerUser.post('/register', upload.single('avatar'), (req, res, next) => {
+const registerController = (req, res, next) => {
 	passport.authenticate('register', async (err, user, info) => {
 		if (err) {
 			return next(err);
@@ -54,9 +39,9 @@ routerUser.post('/register', upload.single('avatar'), (req, res, next) => {
 			return res.json(info);
 		}
 	})(req, res, next);
-});
+};
 
-routerUser.post('/login', (req, res, next) => {
+const loginController = (req, res, next) => {
 	passport.authenticate('login', (err, user, info) => {
 		if (err) {
 			return next(err);
@@ -71,6 +56,12 @@ routerUser.post('/login', (req, res, next) => {
 			return res.json(info);
 		});
 	})(req, res, next);
-});
+};
 
-export default routerUser;
+export default {
+	getUserController,
+	getAuth,
+	logoutController,
+	registerController,
+	loginController,
+};

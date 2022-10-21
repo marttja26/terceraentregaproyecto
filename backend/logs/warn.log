@@ -324,3 +324,7 @@
 {"level":"warn","message":" Ruta GET /content/uploads/avatar-1665824406299.jpg no implementada."}
 {"level":"warn","message":" Ruta GET /favicon.ico no implementada."}
 {"level":"warn","message":" Ruta GET /favicon.ico no implementada."}
+{"level":"warn","message":" Ruta GET /uploads/avatar-1665975375903.png no implementada."}
+{"level":"warn","message":" Ruta GET /uploads/undefined no implementada."}
+{"level":"warn","message":" Ruta GET /uploads/undefined no implementada."}
+{"level":"warn","message":" Ruta GET /uploads/undefined no implementada."}

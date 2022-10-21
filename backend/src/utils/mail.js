@@ -23,7 +23,7 @@ const sendEmail = async (subject,html) => {
     try {
         const info = await trasporter.sendMail(mailOptions)
     } catch (error) {
-        logger.error(error)
+        logger.error({ message: `error al enviar un mail ${error}` });
     }
 }
 

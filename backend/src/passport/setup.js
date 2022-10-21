@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import {UserModel as User} from '../models/Users.js';
+import {UserModel as User} from '../persistencia/models/Users.js';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import logger from '../logger/logger.js';

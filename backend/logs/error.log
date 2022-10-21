@@ -6,3 +6,15 @@
 {"level":"error","message":"error al subir una orden TypeError: Orders.insertOne is not a function"}
 {"level":"error","message":"error al subir una orden TypeError: Orders.insertOne is not a function"}
 {"code":"EAUTH","command":"API","level":"error"}
+{"code":"EAUTH","command":"API","level":"error"}
+{"code":"EAUTH","command":"API","level":"error"}
+{"level":"error","message":"pepe"}
+{"level":"error","message":"error al enviar un mail Error: Missing credentials for \"PLAIN\""}
+{"level":"error","message":"error al enviar un mail Error: Missing credentials for \"PLAIN\""}
+{"level":"error","message":"error al obtener los productos ReferenceError: Products is not defined"}
+{"level":"error","message":"error al obtener los productos ReferenceError: Products is not defined"}
+{"level":"error","message":"error al obtener los productos ReferenceError: Products is not defined"}
+{"level":"error","message":"error al obtener los productos ReferenceError: Products is not defined"}
+{"level":"error","message":"error al obtener las queries ReferenceError: Products is not defined"}
+{"level":"error","message":"error al obtener las queries ReferenceError: Products is not defined"}
+{"level":"error","message":"error al obtener las queries ReferenceError: Products is not defined"}
